@@ -1,28 +1,27 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  #app
+    ChoiseLimit(v-if="!getLimit")
+    Table(v-else)
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import ChoiseLimit from "./components/ChoiseLimit";
+  import Table from "./components/Table";
+  import { mapGetters } from "vuex";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  export default {
+    name: "App",
+    components: {
+      ChoiseLimit,
+      Table,
+    },
+    computed: {
+      ...mapGetters(["getLimit"]),
+    },
+  };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+  #app
+    font-family: Avenir, Helvetica, Arial, sans-serif
 </style>
