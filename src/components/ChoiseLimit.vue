@@ -1,13 +1,12 @@
 <template lang="pug">
-  .datalimit
-    h2.datalimit_title Выберите объем данных
-    .datalimit_body.choise
-      button.choise_btn(
-        @click="setLimit(32)"
-      ) Маленький
-      button.choise_btn(
-        @click="setLimit(1000)"
-      ) Большой
+  .container
+    h2 Выберите объем данных
+    button.btn.btn-large(
+      @click="setLimit(32)"
+    ) Маленький
+    button.btn.btn-large(
+      @click="setLimit(1000)"
+    ) Большой
 </template>
 
 <script>
@@ -20,4 +19,8 @@
   };
 </script>
 
-<style lang="sass"></style>
+<style lang="sass" scoped>
+  .btn
+    margin-right: 20px
+    width: 200px
+</style>

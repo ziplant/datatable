@@ -1,10 +1,10 @@
 <template lang="pug">
-  tr(@click="selectRow()")
-    td {{user.id}}
-    td {{user.firstName}}
-    td {{user.lastName}}
-    td {{user.email}}
-    td {{user.phone}}
+  tr.row(@click="selectRow")
+    td.row_cell {{user.id}}
+    td.row_cell {{user.firstName}}
+    td.row_cell {{user.lastName}}
+    td.row_cell {{user.email}}
+    td.row_cell {{user.phone}}
 </template>
 
 <script>
@@ -16,11 +16,23 @@
       },
     },
     methods: {
-      selectRow() {
-        console.log(this.user);
+      selectRow(e) {
+        if (e.target.parentNode.classList.contains("row--active")) {
+          this.$emit("rowSelected", null);
+          e.target.parentNode.classList.remove("row--active");
+        } else {
+          this.$emit("rowSelected", this.user);
+          e.target.parentNode.classList.add("row--active");
+        }
       },
     },
   };
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+  .row
+    &:hover
+      background-color: #80cbc4
+    &--active
+      background-color: #4db6ac
+</style>

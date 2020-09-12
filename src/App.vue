@@ -22,6 +22,29 @@
 </script>
 
 <style lang="sass">
-  #app
-    font-family: Avenir, Helvetica, Arial, sans-serif
+  body
+    background-color: #eff
+    
+  .window
+    height: 100%
+    width: 100%
+    position: fixed
+    top: 0
+    left: 0
+    &_bg
+      height: 100%
+      width: 100%
+      background-color: rgba(0,0,0,0.7)
+    &_content
+      background-color: #fff
+      padding: 50px
+      border-radius: 6px
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+  .hidden
+    opacity: 0
+    visibility: hidden
 </style>
